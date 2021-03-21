@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceService } from 'src/app/device.service';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
 import { Device } from 'src/app/utils/interfaces/device.interface';
 
 @Component({
@@ -13,14 +11,25 @@ export class DevicesListComponent implements OnInit {
 
   public devices: Device | any;
 
-  public displayedColumns = ['id', 'category', 'color', 'partNumber'];
+  public displayedColumns = ['category', 'color', 'partNumber', 'action'];
 
   constructor(private deviceService: DeviceService) { }
 
   ngOnInit(): void {
-    this.deviceService.getDeviceList().subscribe( (res) => {
+    this.getList()
+  }
+  getList() {
+    this.deviceService.getDeviceList().subscribe((res) => {
       this.devices = res;
     })
   }
 
+  delete(id: number) {
+    this.deviceService.deleteDevice(id).subscribe(() => {
+      this.deviceService.showMessage('device deleted')
+      this.getList()
+    }, (error) => {
+      this.deviceService.showMessage(`delete error: ${error}`)
+    })
+  }
 }

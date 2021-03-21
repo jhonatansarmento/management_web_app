@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+.delete {
+  color: rgb(202, 202, 202)
+}
+
+.delete:hover {
+  color: #ff0019;
+  cursor: pointer;
+}

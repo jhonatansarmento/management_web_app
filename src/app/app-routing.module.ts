@@ -1,19 +1,23 @@
+import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { DeviceCreateComponent } from "./device-managment/device-create/device-create.component";
-import { DevicesListComponent } from "./device-managment/devices-list/devices-list.component";
+import { DeviceCreateComponent } from "./components/device-create/device-create.component";
+import { DevicesListComponent } from "./components/devices-list/devices-list.component";
 
 
 
 const routes: Routes = [
   {
-    path: "", component: DevicesListComponent
+    path: "", redirectTo: 'devices-managment', pathMatch: 'full'
   },
   {
-      path: 'devices-managment', component: DevicesListComponent
+    path: 'devices-managment', component: DevicesListComponent
   },
-  { 
-      path: "category", component: DeviceCreateComponent
+  {
+    path: "category", component: CategoriesListComponent
+  },
+  {
+    path: "devices-managment/create", component: DeviceCreateComponent
   }
 ];
 
@@ -21,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
