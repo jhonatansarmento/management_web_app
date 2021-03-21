@@ -1,3 +1,5 @@
+import { DeviceService } from 'src/app/device.service';
+import { Category } from './../../utils/interfaces/device.interface';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesListComponent implements OnInit {
 
-  constructor() { }
+  public categorys: Category | any;
+
+  public displayedColumns = ['name', 'action']
+
+  constructor(private deviceService: DeviceService) { }
 
   ngOnInit(): void {
+    this.getList();
   }
 
+  getList() {
+    this.deviceService.getCategoryList().subscribe((res) => {
+      this.categorys = res;
+      console.log(this.categorys);
+
+    })
+  }
+
+  delete(id: number) {
+    this.deviceService.deleteCategory(id).subscribe(() => {
+      this.deviceService.showMessage('category deleted')
+      this.getList()
+    }, (error) => {
+      this.deviceService.showMessage(`delete error: ${error}`)
+    })
+  }
 }

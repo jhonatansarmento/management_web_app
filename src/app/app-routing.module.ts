@@ -1,3 +1,4 @@
+import { CategoryCreateComponent } from './components/category-create/category-create.component';
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: "devices-managment/create", component: DeviceCreateComponent
+  },
+  {
+    path: "category/create", component: CategoryCreateComponent
   }
 ];
 

@@ -1,13 +1,15 @@
 table {
     width: 100%;
+    background: #474747;
   }
   
   th.mat-sort-header-sorted {
-    color: black;
+    color: #e7e7e7;
+
   }
 
 .delete {
-  color: rgb(202, 202, 202)
+  color: #cacaca
 }
 
 .delete:hover {

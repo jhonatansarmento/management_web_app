@@ -10,3 +10,7 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
+
+  body {
+    background-color: #101010;
+  }

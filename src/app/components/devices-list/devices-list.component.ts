@@ -5,7 +5,7 @@ import { Device } from 'src/app/utils/interfaces/device.interface';
 @Component({
   selector: 'app-devices-list',
   templateUrl: './devices-list.component.html',
-  styleUrls: ['./devices-list.component.scss']
+  styleUrls: ['./devices-list.component.css']
 })
 export class DevicesListComponent implements OnInit {
 

@@ -1,0 +1,11 @@
+#nav {
+  background-color: #000 !important;
+}
+
+#nav a {
+  color: #cacaca;
+}
+
+#nav a:hover {
+  color: #fff;
+}

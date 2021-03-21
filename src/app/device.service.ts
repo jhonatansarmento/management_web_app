@@ -1,3 +1,4 @@
+import { Category } from './utils/interfaces/device.interface';
 import { Device } from 'src/app/utils/interfaces/device.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -14,7 +15,7 @@ export class DeviceService {
 
   showMessage(msg: string): void {
     this.snackBar.open(msg, 'fechar', {
-      duration: 1500,
+      duration: 3000,
       horizontalPosition: "right",
       verticalPosition: "top"
     })
@@ -39,4 +40,15 @@ export class DeviceService {
     const url = `${this.mainUrl}/devices/${id}`;
     return this.http.delete(url)
   }
+
+  createCategory(category: Category): Observable<Category> {
+    const url = `${this.mainUrl}/categories`;
+    return this.http.post<Category>(url, category)
+  }
+
+  deleteCategory(id: number) {
+    const url = `${this.mainUrl}/categories/${id}`;
+    return this.http.delete(url)
+  }
+
 }
