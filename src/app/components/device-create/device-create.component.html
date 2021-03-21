@@ -6,25 +6,29 @@
     <mat-form-field appearance="fill">
       <mat-label>Category</mat-label>
       <mat-select [(ngModel)]="device.category" name="category" required>
-        <mat-option *ngFor="let category of categories" [value]="category">
-          {{category}}
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Color" [(ngModel)]="device.color" name="color" required>
+      <input maxlength="16"
+        onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+        matInput placeholder="Color" [(ngModel)]="device.color" name="color" required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="partNumber" [(ngModel)]="device.partNumber" name="partNumber" required>
+      <input type="number" matInput placeholder="partNumber" [(ngModel)]="device.partNumber" name="partNumber" required>
     </mat-form-field>
   </form>
 
-  <button mat-raised-button (click)="createDevice()" [disabled]="submitingData || formDevice.invalid" color="primary">
+  <button mat-raised-button (click)="createDevice()"
+    [ngClass]="{'button-active': !submitingData || !formDevice.invalid}"
+    [disabled]="submitingData || formDevice.invalid" color="primary">
     Salvar
   </button>
 
-  <button mat-raised-button (click)="cancel()">
+  <button class="button-cancel" mat-raised-button (click)="cancel()">
     Cancelar
   </button>
 </mat-card>

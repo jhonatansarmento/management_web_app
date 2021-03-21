@@ -1,3 +1,4 @@
+import { HeaderService } from './../templates/header/header.service';
 import { Component, OnInit } from '@angular/core';
 import { DeviceService } from 'src/app/device.service';
 import { Device } from 'src/app/utils/interfaces/device.interface';
@@ -13,7 +14,11 @@ export class DevicesListComponent implements OnInit {
 
   public displayedColumns = ['category', 'color', 'partNumber', 'action'];
 
-  constructor(private deviceService: DeviceService) { }
+  constructor(private deviceService: DeviceService, private headerService: HeaderService) {
+    headerService.headerData = {
+      title: 'Device Management'
+    }
+  }
 
   ngOnInit(): void {
     this.getList()
@@ -25,11 +30,13 @@ export class DevicesListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.deviceService.deleteDevice(id).subscribe(() => {
-      this.deviceService.showMessage('device deleted')
-      this.getList()
-    }, (error) => {
-      this.deviceService.showMessage(`delete error: ${error}`)
-    })
+    if (confirm('Are you sure you want to delete this Device?')) {
+      this.deviceService.deleteDevice(id).subscribe(() => {
+        this.deviceService.showMessage('device deleted')
+        this.getList()
+      }, (error) => {
+        this.deviceService.showMessage(`delete error: ${error}`)
+      })
+    }
   }
 }

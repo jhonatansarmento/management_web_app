@@ -3,13 +3,16 @@ table {
     background: #474747;
   }
   
-  th.mat-sort-header-sorted {
-    color: #e7e7e7;
-
+  th {
+    color: #8b8b8b;
   }
 
+  td {
+    color: #e7e7e7;
+  }
+  
 .delete {
-  color: #cacaca
+  color: #8b8b8b
 }
 
 .delete:hover {

@@ -3,15 +3,15 @@
 
   <form #formDevice="ngForm" novalidate>
     <mat-form-field>
-      <input matInput placeholder="Category" [(ngModel)]="category.name" name="category" required>
+      <input maxlength="128" matInput placeholder="Category" [(ngModel)]="category.name" name="category" required>
     </mat-form-field>
   </form>
 
   <button mat-raised-button (click)="createCategory()" [disabled]="submitingData || formDevice.invalid" color="primary">
-    Salvar
+    Save
   </button>
 
   <button mat-raised-button (click)="cancel()">
-    Cancelar
+    Cancel
   </button>
 </mat-card>

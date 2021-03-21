@@ -1,3 +1,4 @@
+import { HeaderService } from './../templates/header/header.service';
 import { DeviceService } from 'src/app/device.service';
 import { Category } from './../../utils/interfaces/device.interface';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,11 @@ export class CategoriesListComponent implements OnInit {
 
   public displayedColumns = ['name', 'action']
 
-  constructor(private deviceService: DeviceService) { }
+  constructor(private deviceService: DeviceService, private headerService: HeaderService) {
+    headerService.headerData = {
+      title: 'Category Management'
+    }
+  }
 
   ngOnInit(): void {
     this.getList();
@@ -28,11 +33,13 @@ export class CategoriesListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.deviceService.deleteCategory(id).subscribe(() => {
-      this.deviceService.showMessage('category deleted')
-      this.getList()
-    }, (error) => {
-      this.deviceService.showMessage(`delete error: ${error}`)
-    })
+    if (confirm('Are you sure you want to delete this Category?')) {
+      this.deviceService.deleteCategory(id).subscribe(() => {
+        this.deviceService.showMessage('category deleted')
+        this.getList()
+      }, (error) => {
+        this.deviceService.showMessage(`delete error: ${error}`)
+      })
+    }
   }
 }

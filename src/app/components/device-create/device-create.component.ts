@@ -1,3 +1,4 @@
+import { Category } from './../../utils/interfaces/device.interface';
 import { Router } from '@angular/router';
 import { DeviceService } from 'src/app/device.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,21 +15,18 @@ export class DeviceCreateComponent implements OnInit {
   submitingData = false
 
   device: Device = {
-    category: '',
+    category: null,
     color: '',
     partNumber: null
   }
 
-  res: any
-
-  categories = []
+  categories: Category
 
   constructor(private deviceService: DeviceService, private router: Router) { }
 
   ngOnInit(): void {
     this.deviceService.getCategoryList().subscribe((res) => {
-      this.res = res
-      this.categories = this.res.map((obj) => obj.name)
+      this.categories = res;
     })
   }
 

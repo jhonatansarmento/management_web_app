@@ -25,7 +25,7 @@ export class CategoryCreateComponent implements OnInit {
     this.submitingData = true
     this.deviceService.createCategory(this.category).subscribe(() => {
       this.deviceService.showMessage('Category Created')
-      this.router.navigate(['/'])
+      this.router.navigate(['/category'])
     }, (error) => {
       this.deviceService.showMessage(`Error to Create: ${error}`)
     }, () => {

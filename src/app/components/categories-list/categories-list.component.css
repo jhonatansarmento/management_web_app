@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+  background: #474747;
+}
+
+th td {
+  color: #e7e7e7;
+}
+
+.delete {
+color: #cacaca
+}
+
+.delete:hover {
+color: #ff0019;
+cursor: pointer;
+}

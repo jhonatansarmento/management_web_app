@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DeviceService {
-  mainUrl = "http://localhost:3001"
+  mainUrl = "http://localhost:3000"
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -28,7 +28,7 @@ export class DeviceService {
 
   getCategoryList() {
     const url = `${this.mainUrl}/categories`;
-    return this.http.get(url);
+    return this.http.get<Category>(url);
   }
 
   createDevice(device: Device): Observable<Device> {

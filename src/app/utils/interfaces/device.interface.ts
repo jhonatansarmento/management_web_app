@@ -1,6 +1,6 @@
 export interface Device {
     id?: number,
-    category: string, // MUDAR PARA TIPO category: Category
+    category: number | null,
     color: string,
     partNumber: number | null
 }
