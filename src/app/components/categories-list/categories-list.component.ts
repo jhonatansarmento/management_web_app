@@ -35,7 +35,7 @@ export class CategoriesListComponent implements OnInit {
   delete(id: number) {
     if (confirm('Are you sure you want to delete this Category?')) {
       this.deviceService.deleteCategory(id).subscribe(() => {
-        this.deviceService.showMessage('category deleted')
+        this.deviceService.showMessage('Category Deleted')
         this.getList()
       }, (error) => {
         this.deviceService.showMessage(`delete error: ${error}`)

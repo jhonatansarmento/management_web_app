@@ -32,7 +32,7 @@ export class DevicesListComponent implements OnInit {
   delete(id: number) {
     if (confirm('Are you sure you want to delete this Device?')) {
       this.deviceService.deleteDevice(id).subscribe(() => {
-        this.deviceService.showMessage('device deleted')
+        this.deviceService.showMessage('Device Deleted')
         this.getList()
       }, (error) => {
         this.deviceService.showMessage(`delete error: ${error}`)
