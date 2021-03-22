@@ -6,6 +6,10 @@
   color: #cacaca;
 }
 
-#nav a:hover {
+#nav li a {
+  color: #cacaca;
+}
+
+#nav li > a:hover {
   color: #fff;
 }

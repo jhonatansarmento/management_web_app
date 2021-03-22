@@ -3,8 +3,12 @@ table {
   background: #474747;
 }
 
-th td {
-  color: #e7e7e7;
+th{
+  color: #8b8b8b;
+}
+
+td {
+  color: #f1f1f1;
 }
 
 .delete {
@@ -12,6 +16,6 @@ color: #cacaca
 }
 
 .delete:hover {
-color: #ff0019;
+color: #fff;
 cursor: pointer;
 }

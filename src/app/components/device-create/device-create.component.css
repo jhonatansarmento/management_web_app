@@ -1,6 +1,17 @@
+mat-card-title {
+  margin:12px 16px;
+
+}
+mat-form-field {
+  margin:12px 16px;
+  display: block;
+  width: 42%;
+}
+
 .button-active {
   background: #c054be;
   color: #fff;
+  box-shadow: none;
 
   width: 150px;
   height: 50px;
@@ -13,8 +24,9 @@
 }
 
 .button-cancel {
-  background: #c054be;
-  color: #fff;
+  border: #c054be solid 1px;
+  color: #c054be;
+  box-shadow: none;
 
   width: 150px;
   height: 50px;
@@ -24,7 +36,4 @@
   margin-right: 15px;
 
   border-radius: 40px;;
-}
-button:hover {
-  background: #a239a0;
 }

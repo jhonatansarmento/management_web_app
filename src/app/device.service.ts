@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DeviceService {
-  mainUrl = "http://localhost:3000"
+  mainUrl = "https://managementwebapp-backend.herokuapp.com"
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
